@@ -10,14 +10,11 @@ datasets/
 data/
 
 # Large Model Weights (>100MB)
+models/
 *.pt
 *.pth
 *.h5
 *.onnx
-models/trained_models/
-models/*.pt
-models/*.pth
-models/*.bin
 
 # IDEs
 .vscode/
