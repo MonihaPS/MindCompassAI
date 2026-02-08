@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Datasets (Too large)
+datasets/
+data/
+
+# Large Model Weights (>100MB)
+*.pt
+*.pth
+*.h5
+*.onnx
+models/trained_models/
+models/*.pt
+models/*.pth
+models/*.bin
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log

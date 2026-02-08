@@ -1,0 +1,535 @@
+[
+    {
+        "emotion": "angry",
+        "text": "Anger is a natural response to perceived threats but excessive anger can lead to health issues like heart disease, diabetes, and increased stress. It may affect relationships and decision-making. Healthy management includes mindfulness or exercise. If persistent, consult a professional."
+    },
+    {
+        "emotion": "angry",
+        "text": "Unchecked anger increases risks of coronary heart disease, aggressive behaviors, and substance use. Anger management strategies can mitigate these effects."
+    },
+    {
+        "emotion": "angry",
+        "text": "Anger can trigger the body's fight-or-flight response, releasing stress hormones like adrenaline and cortisol, which over time can weaken the immune system."
+    },
+    {
+        "emotion": "angry",
+        "text": "Frequent anger outbursts may strain personal and professional relationships, leading to social isolation and further emotional distress."
+    },
+    {
+        "emotion": "angry",
+        "text": "Cognitive behavioral therapy (CBT) is effective for managing anger by identifying triggers and developing coping mechanisms."
+    },
+    {
+        "emotion": "angry",
+        "text": "Physical activities like jogging or yoga can help release built-up tension from anger and promote endorphin release for mood improvement."
+    },
+    {
+        "emotion": "angry",
+        "text": "Chronic anger is linked to higher blood pressure and increased risk of stroke; regular relaxation techniques can help lower these risks."
+    },
+    {
+        "emotion": "angry",
+        "text": "Journaling about anger episodes can provide insights into patterns and help in developing better emotional regulation skills."
+    },
+    {
+        "emotion": "angry",
+        "text": "Anger suppression can lead to internalized stress, potentially manifesting as depression or anxiety; open communication is key."
+    },
+    {
+        "emotion": "angry",
+        "text": "Mindfulness meditation practices have been shown to reduce anger intensity by increasing awareness of emotional states."
+    },
+    {
+        "emotion": "angry",
+        "text": "Support groups for anger management can offer shared experiences and strategies from others facing similar challenges."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Disgust helps avoid harm but in mental health, it can relate to conditions like OCD or social anxiety, impacting interactions. Addressing underlying causes through therapy can improve well-being."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Intense disgust responses may be heightened in eating disorders, where certain foods trigger avoidance behaviors."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Disgust sensitivity can influence moral judgments, leading to harsher views on ethical issues."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Exposure therapy is commonly used to desensitize individuals to disgust triggers in phobias or OCD."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Chronic disgust towards oneself can contribute to low self-esteem and body dysmorphic disorder."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Social disgust, like prejudice, can be addressed through empathy-building exercises and education."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Disgust can manifest physically with nausea or aversion; relaxation techniques help manage these symptoms."
+    },
+    {
+        "emotion": "disgust",
+        "text": "In PTSD, disgust may accompany trauma memories, requiring specialized trauma-focused therapy."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Mindful acceptance of disgust emotions can prevent escalation into avoidance behaviors."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Group therapy can normalize disgust experiences and provide coping strategies from peers."
+    },
+    {
+        "emotion": "disgust",
+        "text": "Journaling disgust triggers helps in identifying patterns for better management."
+    },
+    {
+        "emotion": "fear",
+        "text": "Fear protects us but chronic fear may indicate anxiety disorders, causing physical symptoms like rapid heartbeat. Coping strategies include breathing exercises; seek help for ongoing issues."
+    },
+    {
+        "emotion": "fear",
+        "text": "Fear can lead to avoidance behaviors, limiting life experiences; gradual exposure helps overcome this."
+    },
+    {
+        "emotion": "fear",
+        "text": "Generalized anxiety disorder often involves persistent fear without specific triggers."
+    },
+    {
+        "emotion": "fear",
+        "text": "Deep breathing techniques like 4-7-8 breathing can calm the nervous system during fear episodes."
+    },
+    {
+        "emotion": "fear",
+        "text": "Fear of social situations may indicate social anxiety, impacting relationships and career."
+    },
+    {
+        "emotion": "fear",
+        "text": "Cognitive restructuring in CBT helps challenge irrational fear-based thoughts."
+    },
+    {
+        "emotion": "fear",
+        "text": "Physical symptoms of fear include sweating and trembling; regular exercise can reduce sensitivity."
+    },
+    {
+        "emotion": "fear",
+        "text": "Mindfulness practices can help observe fear without immediate reaction."
+    },
+    {
+        "emotion": "fear",
+        "text": "Support from friends and family can provide reassurance during fearful times."
+    },
+    {
+        "emotion": "fear",
+        "text": "Professional help like therapy is crucial if fear interferes with daily life."
+    },
+    {
+        "emotion": "fear",
+        "text": "Journaling fears can reveal patterns and reduce their intensity over time."
+    },
+    {
+        "emotion": "happy",
+        "text": "Happiness boosts immunity, longevity, and relationships. It enhances resilience. Cultivate it through gratitude or social connections, but if absent, it might signal depression."
+    },
+    {
+        "emotion": "happy",
+        "text": "Positive emotions like happiness broaden thinking and build personal resources."
+    },
+    {
+        "emotion": "happy",
+        "text": "Gratitude journaling can increase happiness levels by focusing on positive aspects."
+    },
+    {
+        "emotion": "happy",
+        "text": "Social connections are key to sustained happiness; nurture relationships regularly."
+    },
+    {
+        "emotion": "happy",
+        "text": "Acts of kindness can boost happiness for both giver and receiver."
+    },
+    {
+        "emotion": "happy",
+        "text": "Flow states in engaging activities contribute to happiness and fulfillment."
+    },
+    {
+        "emotion": "happy",
+        "text": "Regular exercise releases endorphins, promoting feelings of happiness."
+    },
+    {
+        "emotion": "happy",
+        "text": "Mindfulness meditation enhances present-moment awareness, fostering happiness."
+    },
+    {
+        "emotion": "happy",
+        "text": "Setting and achieving small goals can create a sense of accomplishment and happiness."
+    },
+    {
+        "emotion": "happy",
+        "text": "Nature exposure has been linked to increased happiness and reduced stress."
+    },
+    {
+        "emotion": "happy",
+        "text": "Laughter therapy can improve mood and overall happiness levels."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Neutrality suggests stability but prolonged neutrality could indicate emotional numbness from burnout or depression. Monitor for changes and engage in stimulating activities."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Emotional neutrality can be a coping mechanism in high-stress environments."
+    },
+    {
+        "emotion": "neutral",
+        "text": "In mindfulness, neutral observation of thoughts promotes emotional balance."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Prolonged neutral affect may signal anhedonia, a symptom of depression."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Engaging in hobbies can shift neutral moods towards positive emotions."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Neutral states provide opportunities for reflection and decision-making."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Burnout often presents as emotional neutrality or exhaustion."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Self-care routines can prevent neutral moods from becoming negative."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Therapy can help explore underlying causes of persistent neutrality."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Physical activity can energize neutral emotional states."
+    },
+    {
+        "emotion": "neutral",
+        "text": "Social interactions may help break patterns of emotional neutrality."
+    },
+    {
+        "emotion": "sad",
+        "text": "Sadness is normal after loss but persistent sadness can lead to depression, affecting energy and immunity. Journaling or talking helps; professional support is recommended if it lingers."
+    },
+    {
+        "emotion": "sad",
+        "text": "Prolonged sadness is linked to poor health outcomes like weakened immunity and challenges in relationships. It's important to differentiate from clinical depression."
+    },
+    {
+        "emotion": "sad",
+        "text": "Sadness can be a signal to slow down and process emotions healthily."
+    },
+    {
+        "emotion": "sad",
+        "text": "Supportive listening from friends can alleviate feelings of sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Creative outlets like art or music can express and release sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Regular sleep patterns are crucial when dealing with sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Nutrition plays a role in mood; balanced diets can help combat sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Pet therapy has shown benefits in reducing feelings of sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Volunteering can provide perspective and reduce personal sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Professional counseling is effective for persistent sadness."
+    },
+    {
+        "emotion": "sad",
+        "text": "Mindful walking in nature can help process sad emotions."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Surprise is neutral and can be positive or negative. Frequent surprises might cause stress. Adaptability techniques like mindfulness can help manage reactions."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Positive surprises can boost dopamine and enhance mood temporarily."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Unexpected events can trigger surprise, leading to quick adaptation."
+    },
+    {
+        "emotion": "surprise",
+        "text": "In relationships, surprises can strengthen bonds when positive."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Negative surprises may cause temporary disorientation; grounding techniques help."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Surprise can enhance learning by focusing attention on new information."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Frequent negative surprises can lead to anxiety; building resilience is key."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Mindfulness can help observe surprise without overreaction."
+    },
+    {
+        "emotion": "surprise",
+        "text": "In therapy, exploring surprise reactions can reveal underlying beliefs."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Positive surprise experiences can be cultivated through novelty-seeking."
+    },
+    {
+        "emotion": "surprise",
+        "text": "Journaling surprise events can improve emotional flexibility."
+    },
+    {
+        "text": "Quick stress reset in under 90 seconds: Do 1–2 physiological sighs (inhale deeply through nose, quick second inhale, long slow exhale through mouth). This rapidly lowers heart rate and activates the parasympathetic system."
+    },
+    {
+        "text": "When everything feels overwhelming: Pick the smallest possible next action (literally 30–60 seconds of effort). Example: stand up, drink one sip of water, open a window. Momentum often follows micro-movement."
+    },
+    {
+        "text": "Labeling emotions reduces their intensity: Silently say 'this is anxiety showing up' or 'anger is here right now'. Naming gives the prefrontal cortex more control over the amygdala."
+    },
+    {
+        "text": "Cold exposure for emotional regulation: 15–30 seconds of cold shower on face/neck or holding an ice pack to chest can interrupt acute anxiety spirals by shocking the vagus nerve."
+    },
+    {
+        "text": "The 3-3-3 rule for dissociation or panic: Name 3 things you see, 3 things you hear, move 3 parts of your body (wiggle toes, shoulders, fingers). Brings attention back to present."
+    },
+    {
+        "text": "Opposite action skill (DBT): When sadness wants you to isolate → force yourself to send one kind message or step outside for 2 minutes. Behavior can shift feeling."
+    },
+    {
+        "text": "Box breathing used by Navy SEALs: Inhale 4 seconds → hold 4 → exhale 4 → hold 4. Repeat 4–6 cycles. Very reliable for lowering physiological arousal fast."
+    },
+    {
+        "text": "Write a 'future self' letter: When stuck, write 1–2 paragraphs from your perspective 6 months from now giving advice to current you. Creates psychological distance."
+    },
+    {
+        "text": "TIPP skill for intense emotions (DBT): Temperature (cold water on face), Intense exercise (30 jumping jacks), Paced breathing, Progressive relaxation. Works within minutes."
+    },
+    {
+        "text": "Scheduled worry time technique: Postpone worrying to a fixed 15–30 min slot later in the day. When worry appears outside that time → say 'I'll think about this at 7 pm' and redirect."
+    },
+    {
+        "text": "Gratitude re-wire (5 min version): List 3 things you're grateful for + why they matter to you personally (not just 'family' — 'my sister always texts me memes when I'm down')."
+    },
+    {
+        "text": "Body doubling for motivation when depressed: Ask someone (even online) to stay on video call or voice chat while you do one small task. Presence without pressure helps start."
+    },
+    {
+        "text": "The 'two-minute rule' for procrastination: If a task takes less than two minutes — do it immediately. Builds momentum and reduces decision fatigue."
+    },
+    {
+        "text": "Values clarification when lost: Ask 'What kind of person do I want to be even on hard days?' Then pick one tiny action that aligns with that value today."
+    },
+    {
+        "text": "Sensory grounding kit idea: Keep nearby: strong mint, textured object (stress ball), photo that makes you smile, song that reliably shifts mood, scented item."
+    },
+    {
+        "text": "Cognitive defusion phrase examples: Instead of 'I am a failure' → 'I'm having the thought that I am a failure right now'. Creates small but powerful distance."
+    },
+    {
+        "text": "Progressive muscle relaxation sequence (short): Tense & release — feet → calves → thighs → buttocks → abdomen → chest → hands → arms → shoulders → face (5–7 sec each)."
+    },
+    {
+        "text": "Self-compassion break (Kristin Neff): 1. This is a moment of suffering. 2. Suffering is part of human life. 3. May I be kind to myself right now."
+    },
+    {
+        "text": "Dopamine menu for low-motivation days: Prepare list of small quick dopamine hits — funny 60-sec video, favorite song, 5 push-ups, coffee smell, stretch in sun, etc."
+    },
+    {
+        "text": "Boundary script starter: 'I care about our relationship and I need ____ to feel safe/respected/rested. Would you be willing to ____?' (specific, non-accusatory)."
+    },
+    {
+        "text": "Sleep hygiene basics most people miss: No caffeine after 1–2 pm (half-life 5–6 h), no intense arguments/exercise 90 min before bed, consistent wake time (±30 min) even weekends."
+    },
+    {
+        "text": "Paradoxical intention for insomnia: Try to stay awake with eyes open instead of forcing sleep. Removes performance pressure → sleep often comes faster."
+    },
+    {
+        "text": "4–7–8 breathing (Weil): Inhale quietly through nose 4 sec → hold 7 sec → exhale forcefully through mouth 8 sec making whoosh sound. 4 cycles max first time."
+    },
+    {
+        "text": "Cope ahead skill: Mentally rehearse a difficult situation + your desired response before it happens. Reduces in-the-moment overwhelm."
+    },
+    {
+        "text": "Thought record mini-version: Situation → Emotion → Automatic thought → Evidence against the thought → Balanced thought."
+    },
+    {
+        "text": "When motivation = 0: Use 'activation energy' hack — commit to only 2 minutes of the task. Most people continue once started."
+    },
+    {
+        "text": "Vagus nerve stimulation quick hacks: Gargle water vigorously 30 sec, sing/hum loudly, cold water face immersion, slow exhale longer than inhale."
+    },
+    {
+        "text": "Name it to tame it (Siegel): Simply saying out loud or writing 'I feel furious right now' reduces amygdala activation within seconds."
+    },
+    {
+        "text": "Distress tolerance ACCEPTS (DBT): Activities, Contributing, Comparisons (better/worse times), Emotions (opposite), Pushing away (temporarily), Thoughts (distract), Sensations."
+    },
+    {
+        "text": "Morning sunlight exposure: 5–15 minutes within 1 hour of waking (even cloudy) sets circadian rhythm, improves mood and sleep pressure later."
+    },
+    {
+        "text": "The 'urge surfing' technique: Ride an urge/cravings like a wave — observe it rise, peak, fall without acting. Usually peaks in 3–20 minutes."
+    },
+    {
+        "text": "Self-soothe with five senses: Vision (beautiful photo), Hearing (calm playlist), Smell (essential oil), Taste (herbal tea), Touch (soft blanket)."
+    },
+    {
+        "text": "Radical acceptance phrase: 'This is painful and I don't like it… and this is how it is right now.' Reduces secondary suffering (suffering about suffering)."
+    },
+    {
+        "text": "Implementation intention (Gollwitzer): If X happens, then I will Y. Example: 'If I start ruminating at night, then I will do 10 slow breaths + get out of bed.'"
+    },
+    {
+        "text": "Energy audit quick check: Rate physical energy, mental focus, emotional tone 0–10. Choose task that matches current level (creative when high, admin when low)."
+    },
+    {
+        "text": "Window of tolerance concept: When hyper-aroused (anxiety/anger) or hypo-aroused (shutdown) → use different skills. Hyper → calming, hypo → activating."
+    },
+    {
+        "text": "Loving-kindness meditation short version: 'May I be safe. May I be healthy. May I live with ease. May I be kind to myself.' Repeat 1–3 min."
+    },
+    {
+        "text": "Decision fatigue reducer: Make tomorrow's outfit/food/work start choice tonight when willpower is higher."
+    },
+    {
+        "text": "Posture reset for mood: Stand tall, shoulders back, chin slightly up for 2 minutes → increases testosterone, decreases cortisol (Carney & Cuddy research)."
+    },
+    {
+        "text": "The 'yes, and…' reframe for catastrophizing: 'Yes, this might go wrong… and I have handled difficult things before / and I can survive discomfort.'"
+    },
+    {
+        "text": "Micro-dose nature connection: Look at sky for 20 seconds, touch a plant, listen to birds — lowers cortisol quickly."
+    },
+    {
+        "text": "Internal family systems mini-exercise: Ask the anxious part 'What are you afraid would happen if you didn't feel anxious?' Listen with curiosity."
+    },
+    {
+        "text": "Caffeine timing rule of thumb: Wait 90–120 min after waking before first coffee — lets natural adenosine clearance + cortisol peak happen first."
+    },
+    {
+        "text": "One-minute journal prompt when stuck: 'What is one thing I know for sure is true right now?' (anchor in reality)."
+    },
+    {
+        "text": "HALT check before emotional eating/impulses: Am I Hungry? Angry? Lonely? Tired? Address the real need first."
+    },
+    {
+        "text": "Savoring practice: When something good happens — pause 15–30 seconds, mentally replay it, notice body sensations, say thank you silently."
+    },
+    {
+        "text": "Emotional granularity training: Instead of 'I feel bad' try 'I feel disappointed and a bit ashamed'. More precise naming = better regulation."
+    },
+    {
+        "text": "Buffer zones: Leave 10–15 min buffer before/after meetings or transitions to prevent emotional spillover."
+    },
+    {
+        "text": "The 'observer self' perspective: Imagine watching yourself from above or from 10 years in future. Reduces fusion with painful thoughts."
+    },
+    {
+        "text": "Gentle movement menu for depression: 5 sun salutations, wall angels, cat-cow stretches, slow dancing to one song — low pressure entry points."
+    },
+    {
+        "text": "Phone stack during meals/conversations: Put phone face down in middle of table. Small action that increases presence."
+    },
+    {
+        "text": "Affirmation alternative: Instead of 'I am confident' (can feel false) → 'I am learning to act confidently even when I don't feel it yet.'"
+    },
+    {
+        "text": "Night-time wind-down sequence: Dim lights 90 min before bed → no screens → warm shower → 5 min body scan or reading paper book."
+    },
+    {
+        "text": "The 'what's one kind thing…' question: When self-critical ask 'What is one kind thing I would say to a friend in this situation?'"
+    },
+    {
+        "text": "Crescendo breathing: Inhale 4 sec → exhale 6 sec → inhale 4 → exhale 8 → continue lengthening exhale until calm."
+    },
+    {
+        "text": "Permission slip ritual: Write on paper 'Today I give myself permission to rest / say no / not be productive / feel messy emotions' — read aloud."
+    },
+    {
+        "text": "Curiosity over judgment: When strong emotion arises → ask 'What is this feeling trying to protect me from?' instead of 'Why am I like this?'"
+    },
+    {
+        "text": "Single-task evening: Choose one enjoyable low-effort activity (puzzle, coloring, knitting, podcast) and protect that time fiercely."
+    },
+    {
+        "text": "Memory anchoring: When panicking → hold object that reminds you of a safe/calm moment (stone from beach, gift from friend)."
+    },
+    {
+        "text": "The 'delete draft' technique for rumination: Write angry email/text in notes app → wait 20 min → delete without sending. Gets it out, prevents regret."
+    },
+    {
+        "text": "Micro-yes practice: When motivation is zero → ask body 'Would it be okay to just put on workout clothes?' Small yes often leads to more."
+    },
+    {
+        "text": "Nature sound playlist + timer: 7-minute nature sounds (rain, forest, ocean) while lying down — lowers sympathetic activation fast."
+    },
+    {
+        "text": "Values card sort mini: Pick top 3 values from list (connection, growth, contribution, adventure…) → do one 2-min action aligned today."
+    },
+    {
+        "text": "Should → could reframe: Change 'I should meditate' → 'I could meditate for 3 minutes and see how I feel.' Reduces resistance."
+    },
+    {
+        "text": "After work transition ritual: Change clothes, 5 min stretch, make tea, playlist switch — signals nervous system that work is over."
+    },
+    {
+        "text": "The 'two chairs' technique (short version): Talk to anxious part in one chair, then switch and respond as wise self."
+    },
+    {
+        "text": "Morning pages lite: Write 3 long-hand pages of whatever comes (no editing) — dump mental clutter before day starts."
+    },
+    {
+        "text": "Pleasant event scheduling: Book one small enjoyable thing every day (coffee with friend, new song, funny YouTube) — non-negotiable."
+    },
+    {
+        "text": "Vocal toning: Hum on exhale for 1–2 minutes → stimulates vagus nerve, increases heart rate variability."
+    },
+    {
+        "text": "The 'yes ladder' for motivation: Yes to opening laptop → yes to opening document → yes to writing one sentence. Tiny commitments stack."
+    },
+    {
+        "text": "Compassionate body scan: Instead of fighting tension → breathe into tight place and say 'I see you're carrying a lot right now'."
+    },
+    {
+        "text": "Decision deadline: For small decisions set 90-second timer — prevents endless rumination over low-stakes choices."
+    },
+    {
+        "text": "Playlist for different states: Have 'energize', 'ground', 'comfort', 'focus', 'let go' playlists ready — music changes state fast."
+    },
+    {
+        "text": "The 'delete app' reset: When doom-scrolling → delete social app for 24 hours (not forever) — short dopamine detox."
+    },
+    {
+        "text": "One-sentence re-authoring: 'I am the person who…' finish with evidence-based identity you want to grow (keeps promises, learns from mistakes)."
+    }
+]
