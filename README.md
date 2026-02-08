@@ -31,7 +31,43 @@ The system uses three specialized deep learning models to perceive emotion:
 
 ---
 
-## 🚀 Setup & Installation
+## � Project Structure
+
+Here is an overview of the key files and directories in the MindCompass AI system:
+
+```plaintext
+MindCompassAI/
+├── app.py                  # 🚀 Backend API (FastAPI) - Handles model inference & RAG logic
+├── dashboard.py            # 💻 Frontend UI (Streamlit) - The interactive user dashboard
+├── config.py               # ⚙️ Configuration - Central settings for paths, models, and constants
+├── rag_service.py          # 🧠 RAG Logic - Manages retrieval, embedding, and LLM generation
+├── knowledge_base.json     # 📚 Knowledge Base - The clinical data used by Guardian AI
+├── .env                    # 🔐 Environment Variables - Stores API keys (GROQ_API_KEY)
+├── requirements.txt        # 📦 Dependencies - List of Python libraries required
+│
+├── models/                 # 🤖 Model Artifacts (Ignored in Git, download separately)
+│   ├── text_model.pth      # Fine-tuned RoBERTa weights
+│   ├── audio_model.pt      # Wav2Vec2 + XGBoost weights
+│   ├── video_model.pth     # ConvNeXt + Spatial Attention weights
+│   └── fusion_model.pth    # Attention Fusion Network weights
+│
+├── training/               # 🎓 Training Scripts - Code to retrain the models
+│   ├── 1_train_text_model.py
+│   ├── 5_train_high_perf_audio.py
+│   ├── 6_train_high_perf_video.py
+│   └── 4_train_fusion_model.py
+│
+├── datasets/               # 💾 Raw Data Storage (Ignored in Git)
+│   ├── audio/ (CREMA-D)
+│   ├── video/ (RAVDESS)
+│   └── text/
+│
+└── logs/                   # 📝 System Logs - Runtime logs for debugging
+```
+
+---
+
+## �🚀 Setup & Installation
 
 ### 1. Prerequisites
 *   **OS**: Windows / Linux / MacOS
