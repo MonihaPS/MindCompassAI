@@ -14,7 +14,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import random
 
-# Force cache to D: drive due to C: being full
 os.environ['HF_HOME'] = 'D:/moni/.cache/huggingface'
 os.environ['TORCH_HOME'] = 'D:/moni/.cache/torch'
 

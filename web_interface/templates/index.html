@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCompass AI - Multimodal Emotion Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧭 MindCompass AI</h1>
+            <p class="subtitle">Multimodal Emotion Recognition with Explainable AI</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('text')">📝 Text</button>
+            <button class="tab-btn" onclick="switchTab('audio')">🎤 Audio</button>
+            <button class="tab-btn" onclick="switchTab('video')">🎥 Video</button>
+            <button class="tab-btn" onclick="switchTab('live')">📹 Live Recording</button>
+        </div>
+
+        <!-- Text Input Tab -->
+        <div id="text-tab" class="tab-content active">
+            <h2>Text Emotion Analysis</h2>
+            <textarea id="text-input" placeholder="Enter your text here..." rows="6"></textarea>
+            <button class="btn-primary" onclick="predictText()">✨ Analyze Text</button>
+        </div>
+
+        <!-- Audio Upload Tab -->
+        <div id="audio-tab" class="tab-content">
+            <h2>Audio Emotion Analysis</h2>
+            <input type="file" id="audio-file" accept="audio/*">
+            <button class="btn-primary" onclick="predictAudio()">✨ Analyze Audio</button>
+        </div>
+
+        <!-- Video Upload Tab -->
+        <div id="video-tab" class="tab-content">
+            <h2>Video Emotion Analysis</h2>
+            <input type="file" id="video-file" accept="video/*">
+            <button class="btn-primary" onclick="predictVideo()">✨ Analyze Video</button>
+        </div>
+
+        <!-- Live Recording Tab -->
+        <div id="live-tab" class="tab-content">
+            <h2>Live Audio + Video Recording</h2>
+            <p class="info-text">📹 Record yourself speaking to analyze both facial expressions and voice tone simultaneously</p>
+            
+            <div class="video-container">
+                <video id="preview" autoplay muted playsinline></video>
+                <div id="recording-indicator" class="hidden">
+                    <span class="recording-dot"></span>
+                    <span id="recording-time">00:00</span>
+                </div>
+            </div>
+
+            <div class="recording-controls">
+                <button id="start-btn" class="btn-record" onclick="startRecording()">
+                    🔴 Start Recording
+                </button>
+                <button id="stop-btn" class="btn-stop hidden" onclick="stopRecording()">
+                    ⏹️ Stop Recording
+                </button>
+                <button id="analyze-btn" class="btn-primary hidden" onclick="analyzeRecording()">
+                    ✨ Analyze Recording
+                </button>
+            </div>
+
+            <div id="recording-status" class="status-message"></div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your emotional state...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results hidden">
+            <h2>🎯 Analysis Results</h2>
+            
+            <!-- Fusion Result -->
+            <div id="fusion-result" class="result-card hidden">
+                <h3>Final Decision</h3>
+                <div id="fusion-emotion" class="emotion-badge"></div>
+                <div id="fusion-confidence" class="confidence-bar"></div>
+            </div>
+
+            <!-- Individual Modality Results -->
+            <div class="modality-results">
+                <!-- Text Result -->
+                <div id="text-result" class="result-card hidden">
+                    <h4>📝 Text Analysis</h4>
+                    <div id="text-emotion" class="emotion-result"></div>
+                    <div id="text-confidence"></div>
+                </div>
+
+                <!-- Audio Result -->
+                <div id="audio-result" class="result-card hidden">
+                    <h4>🎤 Audio Analysis</h4>
+                    <div id="audio-emotion" class="emotion-result"></div>
+                    <div id="audio-confidence"></div>
+                </div>
+
+                <!-- Video Result -->
+                <div id="video-result" class="result-card hidden">
+                    <h4>🎥 Video Analysis</h4>
+                    <div id="video-emotion" class="emotion-result"></div>
+                    <div id="video-confidence"></div>
+                </div>
+            </div>
+
+            <!-- XAI Explanations -->
+            <div id="xai-section" class="xai-section hidden">
+                <h3>🔍 Explainable AI - Why This Prediction?</h3>
+                <div id="xai-content"></div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+</body>
+</html>

@@ -2,10 +2,14 @@
 
 import streamlit as st
 import requests
-import json
-import pandas as pd
+import plotly.graph_objects as go
 import plotly.express as px
-import time
+import pandas as pd
+import sys
+import os
+
+# Define emotions directly (avoid importing torch via config.py)
+EMOTIONS = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
 
 # ============================================
 # APP CONFIGURATION
@@ -361,54 +365,201 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Input Modes
-col1, col2, col3 = st.columns(3, gap="medium")
+# ============================================
+# INPUT SECTION
+# ============================================
+
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.subheader("Text Input")
+    st.caption("💭 Share your thoughts or feelings")
     text_mode = st.radio("", ["Free Writing", "Guided Prompt"], horizontal=True, key="text_mode")
+    
     if text_mode == "Free Writing":
-        text = st.text_area("", placeholder="How was your day? Write freely...", height=250)
+        text = st.text_area("How was your day? Write freely...", height=300, key="text_input")
     else:
-        text = st.text_area("", placeholder="Guided: Describe a recent challenge and how it made you feel...", height=250)
+        prompt = st.selectbox("Choose a prompt:", [
+            "Describe how you're feeling right now",
+            "What made you happy today?",
+            "What's been challenging lately?",
+            "What are you grateful for?"
+        ])
+        text = st.text_area(f"{prompt}", height=250, key="text_prompt")
 
 with col2:
-    st.subheader("Audio Input")
-    audio_mode = st.radio("", ["Upload Audio", "Live Record"], horizontal=True, key="audio_mode")
-    if audio_mode == "Upload Audio":
-        audio = st.file_uploader("Drag and drop file here\nLimit 200MB per file • WAV", type=["wav"])
+    st.subheader("Video + Audio Input")
+    st.caption("📹 Upload a video file with audio, or record live")
+    video_mode = st.radio("Choose Input Mode", ["Upload Video+Audio", "Live Record (Video+Audio)"], horizontal=True, key="video_mode", label_visibility="collapsed")
+    
+    if video_mode == "Upload Video+Audio":
+        video = st.file_uploader("Drag and drop file here\nLimit 200MB per file • MP4, AVI, MOV", type=["mp4", "avi", "mov", "webm"])
+        audio = None  # Audio will be extracted from video
     else:
-        st.info("Live Recording Coming Soon!")
+        # Live webcam recording - streamlined workflow
+        import streamlit.components.v1 as components
+        
+        # Initialize session state for recorded video
+        if 'recorded_video' not in st.session_state:
+            st.session_state.recorded_video = None
+        
+        recorder_component = components.html("""
+        <div style="text-align: center; padding: 10px;">
+            <video id="preview" width="100%" height="240" autoplay muted style="border-radius: 8px; background: #000; margin-bottom: 10px;"></video>
+            <div style="margin: 10px 0;">
+                <button id="startBtn" onclick="startRecording()" style="background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; font-size: 14px;">
+                    🔴 Start Recording
+                </button>
+                <button id="stopBtn" onclick="stopRecording()" disabled style="background: #95a5a6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; font-size: 14px;">
+                    ⏹️ Stop Recording
+                </button>
+            </div>
+            <div id="status" style="margin-top: 10px; font-size: 14px; color: #555;"></div>
+        </div>
+        
+        <script>
+            let mediaRecorder;
+            let recordedChunks = [];
+            let stream;
+            
+            async function startRecording() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                    document.getElementById('preview').srcObject = stream;
+                    
+                    mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+                    recordedChunks = [];
+                    
+                    mediaRecorder.ondataavailable = (e) => {
+                        if (e.data.size > 0) recordedChunks.push(e.data);
+                    };
+                    
+                    mediaRecorder.onstop = () => {
+                        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            const base64data = reader.result.split(',')[1];
+                            // Send to Streamlit via session state
+                            window.parent.postMessage({
+                                type: 'streamlit:setComponentValue',
+                                value: base64data
+                            }, '*');
+                            document.getElementById('status').innerHTML = '✅ Recording complete! Preview below.';
+                        };
+                        reader.readAsDataURL(blob);
+                        
+                        // Show preview
+                        const url = URL.createObjectURL(blob);
+                        document.getElementById('preview').srcObject = null;
+                        document.getElementById('preview').src = url;
+                        document.getElementById('preview').muted = false;
+                        document.getElementById('preview').controls = true;
+                    };
+                    
+                    mediaRecorder.start();
+                    document.getElementById('startBtn').disabled = true;
+                    document.getElementById('stopBtn').disabled = false;
+                    document.getElementById('status').innerHTML = '🔴 Recording... Speak clearly!';
+                } catch (err) {
+                    document.getElementById('status').innerHTML = '❌ Error: ' + err.message;
+                }
+            }
+            
+            function stopRecording() {
+                if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                    mediaRecorder.stop();
+                    stream.getTracks().forEach(track => track.stop());
+                    document.getElementById('startBtn').disabled = false;
+                    document.getElementById('stopBtn').disabled = true;
+                }
+            }
+        </script>
+        """, height=380)
+        
+        # Handle recorded video data
+        if recorder_component:
+            import base64
+            try:
+                # Note: Streamlit HTML components have strict cross-origin limits.
+                # If this doesn't save automatically, please use the 'Upload' mode or 
+                # run the dedicated Web Interface (web_interface/app.py).
+                video_data = base64.b64decode(recorder_component)
+                st.session_state.recorded_video = video_data
+                st.success("✅ Recording captured! Click 'Generate Emotional Insights' below.")
+            except:
+                pass
+        
+        st.warning("⚠️ **Note**: Live recording in this Dashboard is for preview. If 'Generate' doesn't show video results, please use the **Upload Video** tab instead for 100% reliability.")
+        
+        # Use recorded video if available
+        if st.session_state.recorded_video:
+            video = st.session_state.recorded_video
+        else:
+            video = None
+        
+        audio = None  # Audio will be extracted from video
 
 with col3:
-    st.subheader("Video Input")
-    video_mode = st.radio("", ["Upload Video", "Live Capture"], horizontal=True, key="video_mode")
-    if video_mode == "Upload Video":
-        video = st.file_uploader("Drag and drop file here\nLimit 200MB per file • MP4", type=["mp4"])
-    else:
-        st.info("Live Capture Coming Soon!")
+    st.markdown("### ")  # Spacing
+    st.info("💡 **Tip**: Upload a video file to analyze both facial expressions AND voice tone together for the most accurate fusion prediction!")
 
 # Predict Button
 if st.button("✨ Generate Emotional Insights"):
     with st.spinner("Analyzing your mind's compass..."):
         files = {}
-        if audio:
-            files['audio'] = (audio.name, audio.getvalue(), audio.type)
-        if video:
-            files['video'] = (video.name, video.getvalue(), video.type)
         
+        if audio:
+            audio_bytes = audio.getvalue() if hasattr(audio, 'getvalue') else audio.read()
+            files['audio'] = ("live_audio.wav", audio_bytes, "audio/wav")
+        
+        if video:
+            # Handle different video sources
+            if isinstance(video, bytes):
+                # Recorded video from session state
+                video_bytes = video
+                files['video'] = ("recorded_video.webm", video_bytes, "video/webm")
+            else:
+                # Uploaded file
+                video_bytes = video.getvalue() if hasattr(video, 'getvalue') else video.read()
+                # Detect mime type from file extension
+                mime_type = "video/mp4"
+                filename = "video.mp4"
+                
+                if hasattr(video, 'name'):
+                    if video.name.endswith('.webm'):
+                        mime_type = "video/webm"
+                        filename = video.name
+                    elif video.name.endswith('.mov'):
+                        mime_type = "video/quicktime"
+                        filename = video.name
+                    elif video.name.endswith('.avi'):
+                        mime_type = "video/x-msvideo"
+                        filename = video.name
+                    else:
+                        filename = video.name
+                
+                files['video'] = (filename, video_bytes, mime_type)
+        
+        print(f"DEBUG: Sending request to API. Files keys: {list(files.keys())}")
         response = requests.post(API_URL, data={"text": text}, files=files)
         
         if response.ok:
             data = response.json()
             st.session_state.last_data = data
             
+            # Display transcribed text if available
+            if 'extracted_text' in data and data['extracted_text']:
+                st.success("🎤 **Speech Transcription (Auto-generated from audio)**")
+                st.text_area("📝 Transcribed Text", value=data['extracted_text'], height=100, disabled=True, key="transcribed_text_display")
+                st.caption("✨ This text was automatically extracted from your video's audio and used for sentiment analysis!")
+            
             col_insight1, col_insight2, col_insight3 = st.columns(3)
             
             with col_insight1:
                 st.subheader("Individual Modalities")
                 if 'text' in data:
-                    st.write(f"Text: {data['text']['emotion'].capitalize()} ({data['text']['confidence']:.2%})")
+                    note = f" ({data['text'].get('note', '')})" if 'note' in data['text'] else ""
+                    st.write(f"Text: {data['text']['emotion'].capitalize()} ({data['text']['confidence']:.2%}){note}")
                 if 'audio' in data:
                     st.write(f"Audio: {data['audio']['emotion'].capitalize()} ({data['audio']['confidence']:.2%})")
                 if 'video' in data:
@@ -427,15 +578,106 @@ if st.button("✨ Generate Emotional Insights"):
             
             with col_insight3:
                 st.subheader("Modality Weights")
-                if 'modality_weights' in fusion:
-                    df_weights = pd.DataFrame(list(fusion['modality_weights'].items()), columns=['Modality', 'Weight'])
+                if 'weights' in fusion:
+                    df_weights = pd.DataFrame(list(fusion['weights'].items()), columns=['Modality', 'Weight'])
                     fig = px.pie(df_weights, values='Weight', names='Modality', hole=0.3)
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, width='stretch')
                 
                 st.subheader("Probability Distribution")
                 df_probs = pd.DataFrame(list(fusion['probs'].items()), columns=['Emotion', 'Probability'])
                 fig2 = px.bar(df_probs, x='Emotion', y='Probability', color='Emotion')
-                st.plotly_chart(fig2, use_container_width=True)
+                st.plotly_chart(fig2, width='stretch')
+            
+            
+            # --- REDESIGNED XAI SECTION ---
+            st.divider()
+            st.header(f"🔍 Explainable AI - Why {data['fusion']['emotion'].capitalize()}?")
+            
+            if 'fusion' in data and 'reasoning' in data['fusion']:
+                # Show fusion reasoning prominently
+                st.success(f"**Final Decision**: {data['fusion']['reasoning']}")
+                
+                st.subheader("📊 Detailed Reasoning by Modality")
+                
+                # Create columns for each modality
+                mod_cols = st.columns(3)
+                
+                for idx, mod in enumerate(['text', 'audio', 'video']):
+                    if mod in data and 'reasoning' in data[mod]:
+                        with mod_cols[idx]:
+                            icon = {"text": "💬", "audio": "🎤", "video": "🎥"}[mod]
+                            st.markdown(f"### {icon} {mod.capitalize()}")
+                            
+                            # Show warning if prediction is uncertain
+                            if data[mod]['emotion'] == 'uncertain':
+                                st.warning(f"⚠️ Uncertain prediction (confidence: {data[mod]['confidence']:.0%})")
+                            else:
+                                st.metric(
+                                    label=f"Predicted: {data[mod]['emotion'].capitalize()}",
+                                    value=f"{data[mod]['confidence']:.0%} confident"
+                                )
+                            
+                            st.caption(data[mod]['reasoning'])
+                            
+                            # Show note if audio was extracted from video
+                            if 'note' in data[mod]:
+                                st.info(f"ℹ️ {data[mod]['note']}")
+                            
+                            # Show warning if present
+                            if 'warning' in data[mod]:
+                                st.caption(f"⚠️ {data[mod]['warning']}")
+                
+                # --- MODALITY CONTRIBUTION CHART ---
+                st.divider()
+                st.subheader("🌐 Multimodal Contribution")
+                
+                # Extract scores for the final winning emotion from each modality
+                if 'fusion' in data and 'emotion' in data['fusion']:
+                    final_emo = data['fusion']['emotion']
+                    contribution_data = []
+                    
+                    for mod in ['text', 'audio', 'video']:
+                        if mod in data and data[mod]:
+                            # Try to get probs, if not available use confidence as fallback
+                            score = 0.0
+                            if 'probs' in data[mod] and final_emo in data[mod]['probs']:
+                                score = data[mod]['probs'][final_emo]
+                            elif 'confidence' in data[mod] and data[mod].get('emotion') == final_emo:
+                                score = data[mod]['confidence']
+                            
+                            contribution_data.append({
+                                'Modality': mod.capitalize(), 
+                                f'Confidence for {final_emo.capitalize()}': score
+                            })
+                    
+                    if len(contribution_data) > 0:
+                        df_mod_contrib = pd.DataFrame(contribution_data)
+                        fig_mod = px.bar(
+                            df_mod_contrib, 
+                            x='Modality', 
+                            y=f'Confidence for {final_emo.capitalize()}',
+                            color='Modality', 
+                            title=f"How each modality felt about '{final_emo.capitalize()}'",
+                            color_discrete_map={'Text': '#6366f1', 'Audio': '#a855f7', 'Video': '#ec4899'}
+                        )
+                        
+                        # Add a horizontal line for the fusion confidence
+                        if 'confidence' in data['fusion']:
+                            fig_mod.add_hline(
+                                y=data['fusion']['confidence'], 
+                                line_dash="dash", 
+                                annotation_text=f"Final Fusion: {data['fusion']['confidence']:.0%}",
+                                line_color="green"
+                            )
+                        
+                        st.plotly_chart(fig_mod, width='stretch')
+                        st.info(f"This chart shows how confident each AI model was about **{final_emo.capitalize()}**. The green line shows the final fused confidence after combining all signals.")
+                    else:
+                        st.info("💡 Not enough modality data to show contribution chart (Did you record audio and video?)")
+                else:
+                    st.info("💡 Complete a prediction to see how different signals contributed to the result.")
+            else:
+                st.info("💡 Upload video+audio or enter text to see detailed explanations of the prediction.")
         else:
             st.error("The compass lost its way. Please ensure the backend server is active.")
 
